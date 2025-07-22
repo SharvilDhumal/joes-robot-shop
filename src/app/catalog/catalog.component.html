@@ -9,17 +9,19 @@
 
   <ul class="products">
     <li class="product-item">
-      <div class="product">
+      <div class="product" *ngFor="let product of products">
         <div class="product-details">
-          <img src="" alt="" />
+          <img [src]="getImageUrl(product)" [alt]="product.name" />
+          <!-- <input type="text" [value]="product.name" />
+          [] creates one way binding  when the product.name changes it will update the value of input but when the user types in the input box nothing happens -->
           <div class="product-info">
-            <div class="name"></div>
-            <div class="description"></div>
-            <div class="category">Part Type:</div>
+            <div class="name">{{ product.name }}</div>
+            <div class="description">{{ product.description }}</div>
+            <div class="category">Part Type:{{ product.category }}</div>
           </div>
         </div>
         <div class="price">
-          <div></div>
+          <div>{{ product.price | currency : "USD" }}</div>
           <button class="cta">Buy</button>
         </div>
       </div>
