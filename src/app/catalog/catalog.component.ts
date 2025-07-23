@@ -5,9 +5,12 @@ import { IProduct } from './product.module';
   selector: 'bot-catalog',
   templateUrl: './catalog.component.html',
   styleUrls: ['./catalog.component.css'],
+  // styles  : ['a {font-weight : bold;}'],
 })
 export class CatalogComponent {
-  products: IProduct[];
+  products: any;
+  filter: string = '';
+  cart: IProduct[] = [];  
 
   constructor() {
     this.products = [
@@ -187,7 +190,23 @@ export class CatalogComponent {
     ];
   }
 
-  getImageUrl(product: IProduct) {
-    return '/assets/images/robot-parts/' + product.imageName;
+  addToCart(product : IProduct){
+    this.cart.push(product);
+    console.log(`product ${product.name} added to cart!`);
+  }
+
+
+  getDiscountedClasses(product :IProduct){
+      if(product.discount > 0) return ['strikeThrough'];         
+    else return [];
+  }
+
+
+  getFilterProducts() {
+    return this.filter === ''
+      ? this.products
+      : this.products.filter(
+          (product: any) => product.category === this.filter
+        );
   }
 }

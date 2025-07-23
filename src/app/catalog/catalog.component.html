@@ -1,30 +1,16 @@
 <div class="container">
   <div class="filters">
-    <a class="button">Heads</a>
-    <a class="button">Arms</a>
-    <a class="button">Torsos</a>
-    <a class="button">Bases</a>
-    <a class="button">All</a>
+    <a class="button " (click)="filter = 'Heads'">Heads</a>
+    <!-- () binding is done form template to component class and not vice versa -->
+    <a class="button" (click)="filter = 'Arms'">Arms</a>
+    <a class="button" (click)="filter = 'Torsos'">Torsos</a>
+    <a class="button" (click)="filter = 'Bases'">Bases</a>
+    <a class="button" (click)="filter = ''">All</a>
   </div>
 
   <ul class="products">
-    <li class="product-item">
-      <div class="product" *ngFor="let product of products">
-        <div class="product-details">
-          <img [src]="getImageUrl(product)" [alt]="product.name" />
-          <!-- <input type="text" [value]="product.name" />
-          [] creates one way binding  when the product.name changes it will update the value of input but when the user types in the input box nothing happens -->
-          <div class="product-info">
-            <div class="name">{{ product.name }}</div>
-            <div class="description">{{ product.description }}</div>
-            <div class="category">Part Type:{{ product.category }}</div>
-          </div>
-        </div>
-        <div class="price">
-          <div>{{ product.price | currency : "USD" }}</div>
-          <button class="cta">Buy</button>
-        </div>
-      </div>
+    <li class="product-item" *ngFor="let product of getFilterProducts()">
+      <bot-product-details [product]="product"></bot-product-details>
     </li>
   </ul>
 </div>
