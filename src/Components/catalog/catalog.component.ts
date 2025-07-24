@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IProduct } from './product.module';
+import { CartService } from '../../Services/cart.service';
 
 @Component({
   selector: 'bot-catalog',
@@ -10,9 +11,9 @@ import { IProduct } from './product.module';
 export class CatalogComponent {
   products: any;
   filter: string = '';
-  cart: IProduct[] = [];  
+  
 
-  constructor() {
+  constructor(private cartSvc : CartService) {
     this.products = [
       {
         id: 1,
@@ -190,10 +191,7 @@ export class CatalogComponent {
     ];
   }
 
-  addToCart(product : IProduct){
-    this.cart.push(product);
-    console.log(`product ${product.name} added to cart!`);
-  }
+  addToCart(product : IProduct){}
 
 
   getDiscountedClasses(product :IProduct){
