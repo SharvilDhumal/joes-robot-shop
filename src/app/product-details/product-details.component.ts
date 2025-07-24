@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { IProduct } from '../catalog/product.module';
 
 @Component({
@@ -7,8 +7,10 @@ import { IProduct } from '../catalog/product.module';
   styleUrls: ['./product-details.component.css']
 })
 export class ProductDetailsComponent {
-  @Input() product!: IProduct; // Add definite assignment assertion
+  @Input() product!: IProduct; 
+  @Output() buy = new EventEmitter()
   
+
   getImageUrl(product: IProduct) {
     if (!product) {
       return ' ';
@@ -21,10 +23,8 @@ export class ProductDetailsComponent {
     else return [];
   }
 
-  addToCart(product: IProduct) {
-    // Implementation for adding to cart
-    console.log('Adding to cart:', product);
-
+  buyButtonClicked(product: IProduct) {
+    this.buy.emit();
   }
 }
 

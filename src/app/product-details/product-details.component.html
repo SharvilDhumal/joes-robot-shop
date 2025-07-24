@@ -1,12 +1,12 @@
 <div class="product">
     <div class="product-details">
-      <img [src]="getImageUrl(product)" [alt]="product?.name" />
+      <img [src]="getImageUrl(product)" [alt]="product.name" />
       <!-- <input type="text" [value]="product.name" />
       [] creates one way binding  when the product.name changes it will update the value of input but when the user types in the input box nothing happens (in direction from component class to template)-->
       <div class="product-info">
-        <div class="name ">{{ product?.name }}</div>
-        <div class="description">{{ product?.description }}</div>
-        <div class="category">Part Type:{{ product?.category }}</div>
+        <div class="name">{{ product.name }}</div>
+        <div class="description">{{ product.description }}</div>
+        <div class="category">Part Type: {{ product.category }}</div>
       </div>
     </div>
     <div class="price">
@@ -14,11 +14,11 @@
       style = "font-weight: bolder"
       [ngStyle] = "{'color' : product.discount > 0 ?'green' : ''}"
       [ngClass] = "getDiscountedClasses(product)" >
-        {{ product?.price | currency : "USD" }}
+        {{ product.price | currency : "USD" }}
       </div>
       <div class="discount" *ngIf="product.discount > 0">
         {{ product.price * (1 - product.discount) | currency : "USD" }}
       </div>
-      <button class="cta" (click) = "addToCart(product)">Buy</button>
+      <button class="cta" (click) = "buyButtonClicked(product)">Buy</button>
     </div>
   </div>
