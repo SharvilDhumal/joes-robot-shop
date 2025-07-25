@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { IProduct } from './product.module';
 import { CartService } from '../../Services/cart.service';
 
@@ -11,8 +11,9 @@ import { CartService } from '../../Services/cart.service';
 export class CatalogComponent {
   products: any;
   filter: string = '';
-  
+  // private cartSvc : CartService = inject(CartService);
 
+  // Constructor Dependency Injection-->
   constructor(private cartSvc : CartService) {
     this.products = [
       {
@@ -191,7 +192,9 @@ export class CatalogComponent {
     ];
   }
 
-  addToCart(product : IProduct){}
+  addToCart(product : IProduct){
+    this.cartSvc.add(product);
+  }
 
 
   getDiscountedClasses(product :IProduct){

@@ -6,6 +6,10 @@ import { HomeComponent } from '../home/home.component';
 import { CatalogComponent } from '../catalog/catalog.component';
 import { SiteHeaderComponent } from '../site-header/site-header.component';
 import { ProductDetailsComponent } from '../product-details/product-details.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { AddToCartDialogComponent } from '../add-to-cart-dialog/add-to-cart-dialog.component';
 
 @NgModule({
   declarations: [
@@ -14,8 +18,14 @@ import { ProductDetailsComponent } from '../product-details/product-details.comp
     CatalogComponent,
     SiteHeaderComponent,
     ProductDetailsComponent,
+    AddToCartDialogComponent
   ],
-  imports: [BrowserModule],
+  imports: [
+    BrowserModule, 
+    BrowserAnimationsModule, 
+    MatDialogModule, 
+    MatButtonModule
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

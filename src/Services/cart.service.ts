@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { IProduct } from '@components/catalog/product.module';
+import { AddToCartDialogComponent } from '../Components/add-to-cart-dialog/add-to-cart-dialog.component';
 
 @Injectable({
   providedIn: 'root'
@@ -8,10 +10,28 @@ import { IProduct } from '@components/catalog/product.module';
 export class CartService {
   cart: IProduct[] = [];
   
-  constructor() { }
+  constructor(private dialog: MatDialog) { }
 
-  addToCart(product : IProduct){
+  add(product: IProduct): void {
+    // Add to cart immediately
     this.cart.push(product);
-    console.log(`product ${product.name} added to cart!`);
+    console.log(`Product ${product.name} added to cart!`);
+    
+    // Show success message
+    const dialogRef = this.dialog.open(AddToCartDialogComponent, {
+      width: '350px',
+      panelClass: 'centered-dialog',
+      hasBackdrop: true,
+      disableClose: false,
+      position: {
+        top: '0',
+        left: '0'
+      },
+      data: { 
+        name: product.name,
+        price: product.price,
+        isSuccess: true
+      }
+    });
   }
 }
