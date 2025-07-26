@@ -20,13 +20,8 @@ export class CartService {
     // Show success message
     const dialogRef = this.dialog.open(AddToCartDialogComponent, {
       width: '350px',
-      panelClass: 'centered-dialog',
       hasBackdrop: true,
       disableClose: false,
-      position: {
-        top: '0',
-        left: '0'
-      },
       data: { 
         name: product.name,
         price: product.price,
