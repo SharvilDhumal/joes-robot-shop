@@ -11,6 +11,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { AddToCartDialogComponent } from '../add-to-cart-dialog/add-to-cart-dialog.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CartComponent } from '../cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { HttpClientModule } from '@angular/common/http';
     CatalogComponent,
     SiteHeaderComponent,
     ProductDetailsComponent,
-    AddToCartDialogComponent
+    AddToCartDialogComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule, 
