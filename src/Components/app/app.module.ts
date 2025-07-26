@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { AddToCartDialogComponent } from '../add-to-cart-dialog/add-to-cart-dialog.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,9 @@ import { AddToCartDialogComponent } from '../add-to-cart-dialog/add-to-cart-dial
     BrowserModule, 
     BrowserAnimationsModule, 
     MatDialogModule, 
-    MatButtonModule
+    MatButtonModule,
+    HttpClientModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent],
