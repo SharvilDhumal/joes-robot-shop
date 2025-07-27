@@ -1,0 +1,27 @@
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { IUserCredentials } from 'src/Services/user.model';
+import  {UserService}  from 'src/Services/user.service';
+
+@Component({
+  selector: 'bot-sign-in',
+  templateUrl: './sign-in.component.html',
+  styleUrls: ['./sign-in.component.css'],
+})
+export class SignInComponent {
+  credentials : IUserCredentials = {
+    email : '',
+    password:''
+  }
+  constructor(private userService : UserService, private router : Router) { }
+  signInError : boolean = false;  
+
+  signIn(){
+    this.signInError = false;
+    this.userService.signIn(this.credentials).subscribe({
+      next : () => this.router.navigate(['/catalog']),
+      error : () => (this.signInError = true)
+    });
+  }
+
+}
