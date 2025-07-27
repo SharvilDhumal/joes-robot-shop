@@ -2,6 +2,8 @@ import { Component, inject } from '@angular/core';
 import { IProduct } from './product.module';
 import { CartService } from '../../Services/cart.service';
 import { ProductService} from '../../Services/product.service';
+import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'bot-catalog',
@@ -10,23 +12,30 @@ import { ProductService} from '../../Services/product.service';
   // styles  : ['a {font-weight : bold;}'],
 })
 export class CatalogComponent {
-  products: any;
+  products: IProduct[] = [];
   filter: string = '';
   // private cartSvc : CartService = inject(CartService);
 
   // Constructor Dependency Injection-->
   constructor(
-    private cartSvc : CartService, private productSvc : ProductService
+    private cartSvc : CartService,
+    private productSvc : ProductService,
+    private router : Router,
+    private route : ActivatedRoute,
     ) {}
 
   ngOnInit(){
     this.productSvc.getProducts().subscribe((products) => {
       this.products = products;
     });
+    this.route.queryParams.subscribe((params) => {
+      this.filter = params['filter'] ?? '';
+    })
   }
 
   addToCart(product : IProduct){
     this.cartSvc.add(product);
+    this.router.navigate(['/cart']);
   }
 
 
@@ -37,10 +46,13 @@ export class CatalogComponent {
 
 
   getFilterProducts() {
+    if (!this.products || !Array.isArray(this.products)) {
+      return [];
+    }
     return this.filter === ''
       ? this.products
       : this.products.filter(
-          (product: any) => product.category === this.filter
+          (product: IProduct) => product.category === this.filter
         );
   }
 }

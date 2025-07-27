@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from '../home/home.component';
-import { CatalogComponent } from '../catalog/catalog.component';
-import { SiteHeaderComponent } from '../site-header/site-header.component';
-import { ProductDetailsComponent } from '../product-details/product-details.component';
+import { HomeComponent } from '../Components/home/home.component';
+import { CatalogComponent } from '../Components/catalog/catalog.component';
+import { SiteHeaderComponent } from '../Components/site-header/site-header.component';
+import { ProductDetailsComponent } from '../Components/product-details/product-details.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
-import { AddToCartDialogComponent } from '../add-to-cart-dialog/add-to-cart-dialog.component';
+import { AddToCartDialogComponent } from '../Components/add-to-cart-dialog/add-to-cart-dialog.component';
 import { HttpClientModule } from '@angular/common/http';
-import { CartComponent } from '../cart/cart.component';
+import { CartComponent } from '../Components/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +29,7 @@ import { CartComponent } from '../cart/cart.component';
     MatDialogModule, 
     MatButtonModule,
     HttpClientModule,
-    
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent],
