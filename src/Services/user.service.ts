@@ -8,7 +8,7 @@ import { IUser, IUserCredentials } from './user.model';
   providedIn: 'root',
 })
 export class UserService {
-  private user: BehaviorSubject<IUser | null>;
+  private user: BehaviorSubject< IUser | null>;
 
   constructor(private http: HttpClient) {
     this.user = new BehaviorSubject<IUser | null>(null);

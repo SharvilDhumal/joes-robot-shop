@@ -29,7 +29,7 @@ export class CatalogComponent {
       this.products = products;
     });
     this.route.queryParams.subscribe((params) => {
-      this.filter = params['filter'] ?? '';
+      this.filter = params['filter'] || '';
     })
   }
 

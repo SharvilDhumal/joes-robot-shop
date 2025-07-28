@@ -18,10 +18,11 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('joes-robot-shop');
   });
 
-  it('should render title', () => {
+  it('should render the app header', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('joes-robot-shop app is running!');
+    expect(compiled.querySelector('bot-site-header')).toBeTruthy();
+    expect(compiled.querySelector('router-outlet')).toBeTruthy();
   });
 });

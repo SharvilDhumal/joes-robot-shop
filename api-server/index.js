@@ -8,11 +8,12 @@ app.use(bodyParser.json());
     ***NEVER*** store credentials unencrypted like this.
     This is for demo purposes only in order to simulate a functioning API serverr.
 */
+
 const users = {
-  "jim@joesrobotshop.com": {
-    firstName: "Jim",
-    lastName: "Cooper",
-    email: "jim@joesrobotshop.com",
+  "sharvil@joesrobotshop.com": {
+    firstName: "Sharvil",
+    lastName: "Dhumal",
+    email: "sharvil@joesrobotshop.com",
     password: "very-secret",
   },
   "joe@joesrobotshop.com": {
