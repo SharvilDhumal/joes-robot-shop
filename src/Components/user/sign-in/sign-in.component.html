@@ -1,47 +1,106 @@
 <div class="container">
-  <form #signInform="ngForm" class="form" (ngSubmit)="signIn()">
-    <img class="logo" src="/assets/images/logo.png" alt="Company Logo" />
-    <div class="sign-in">Sign In</div>
-    <div class="sub-text">to acquire awesome bots</div>
-    
+  <div class="robot-background">
+    <div class="floating-robot">🤖</div>
+    <div class="floating-gear">⚙️</div>
+    <div class="floating-circuit">🔌</div>
+  </div>
+
+  <form class="form" (ngSubmit)="signIn()" #signInform="ngForm">
+    <div class="form-header">
+      <!-- <div class="logo">🤖</div> -->
+      <img
+        src="/assets/images/logo.png"
+        alt="Joe's Robot Shop Logo"
+        class="title-logo"
+      />
+      <h2 class="subtitle">Sign In</h2>
+      <p class="tagline">Welcome back to the robot revolution!</p>
+    </div>
+
     <div class="form-group">
+      <label for="email" class="label">
+        <span class="icon">📧</span>
+        Email Address
+      </label>
       <input
-        name="email" required email #email="ngModel" [(ngModel)]="credentials.email"
-        placeholder="Email Address"
+        id="email"
+        name="email"
         type="email"
-        [class.error]="email.invalid && email.touched"
+        required
+        email
+        [(ngModel)]="credentials.email"
+        placeholder="Enter your email address"
+        [class.error]="signInform.submitted && (!credentials.email || signInform.controls['email']?.errors?.['email'])"
+        class="input"
       />
-      <em class="error" *ngIf="email.errors?.['required'] && email.touched">
+      <div
+        class="error-message"
+        *ngIf="signInform.submitted && !credentials.email"
+      >
         Email is required
-      </em>
-      <em class="error" *ngIf="email.errors?.['email'] && email.touched">
+      </div>
+      <div
+        class="error-message"
+        *ngIf="signInform.submitted && credentials.email && signInform.controls['email']?.errors?.['email']"
+      >
         Please enter a valid email address
-      </em>
+      </div>
     </div>
-    
-    <div class="form-group password-container">
-      <input
-        name="password" required #password="ngModel" [(ngModel)]="credentials.password"
-        placeholder="Password"
-        [type]="hidePassword ? 'password' : 'text'"
-        [class.error]="password.invalid && password.touched"
-      />
-      <button type="button" class="toggle-password" (click)="togglePasswordVisibility()">
-        <i class="material-icons">{{ hidePassword ? 'visibility_off' : 'visibility' }}</i>
-      </button>
-      <em class="error" *ngIf="password.invalid && password.touched">
+
+    <div class="form-group">
+      <label for="password" class="label">
+        <span class="icon">🔒</span>
+        Password
+      </label>
+      <div class="password-container">
+        <input
+          id="password"
+          name="password"
+          [type]="hidePassword ? 'password' : 'text'"
+          required
+          [(ngModel)]="credentials.password"
+          placeholder="Enter your password"
+          [class.error]="signInform.submitted && !credentials.password"
+          class="input"
+        />
+        <button
+          type="button"
+          class="toggle-password"
+          (click)="togglePasswordVisibility()"
+          [title]="hidePassword ? 'Show password' : 'Hide password'"
+        >
+          {{ hidePassword ? "👁️" : "👁️‍🗨️" }}
+        </button>
+      </div>
+      <div
+        class="error-message"
+        *ngIf="signInform.submitted && !credentials.password"
+      >
         Password is required
-      </em>
+      </div>
     </div>
-    
-    <div class="buttons">
-      <button type="submit" [disabled]="signInform.invalid" class="button cta">
-        Sign In
+
+    <div class="form-actions">
+      <button
+        type="submit"
+        [disabled]="signInform.invalid || isSubmitting"
+        class="signin-button"
+      >
+        <span *ngIf="!isSubmitting">🚀 Sign In</span>
+        <span *ngIf="isSubmitting">⚡ Signing In...</span>
       </button>
     </div>
-    
-    <div class="signInError" *ngIf="signInError">
-      Sign-in failed. Please check your credentials and try again.
+
+    <div class="signin-error" *ngIf="signInError">
+      <span class="error-icon">⚠️</span>
+      {{ signInError }}
+    </div>
+
+    <div class="form-footer">
+      <p>
+        Don't have an account?
+        <a routerLink="/register" class="link">Register</a>
+      </p>
     </div>
   </form>
 </div>

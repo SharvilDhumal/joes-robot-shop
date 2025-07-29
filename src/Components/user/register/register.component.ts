@@ -17,8 +17,13 @@ export class RegisterComponent {
   };
   registerError: string | null = null;
   isSubmitting = false;
+  hidePassword = true;
 
   constructor(private userService: UserService, private router: Router) {}
+
+  togglePasswordVisibility() {
+    this.hidePassword = !this.hidePassword;
+  }
 
   register() {
     this.registerError = null;

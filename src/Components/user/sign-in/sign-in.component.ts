@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { IUserCredentials } from 'src/Services/user.model';
-import  {UserService}  from 'src/Services/user.service';
+import { UserService } from 'src/Services/user.service';
 
 @Component({
   selector: 'bot-sign-in',
@@ -11,11 +11,12 @@ import  {UserService}  from 'src/Services/user.service';
 export class SignInComponent {
   credentials: IUserCredentials = {
     email: '',
-    password: ''
+    password: '',
   };
   hidePassword: boolean = true;
-  
-  constructor(private userService: UserService, private router: Router) { }
+  isSubmitting = false;
+
+  constructor(private userService: UserService, private router: Router) {}
   signInError: boolean = false;
 
   togglePasswordVisibility() {
@@ -24,10 +25,16 @@ export class SignInComponent {
 
   signIn() {
     this.signInError = false;
+    this.isSubmitting = true;
     this.userService.signIn(this.credentials).subscribe({
-      next: () => this.router.navigate(['/catalog']),
-      error: () => (this.signInError = true)
+      next: () => {
+        this.isSubmitting = false;
+        this.router.navigate(['/catalog']);
+      },
+      error: () => {
+        this.isSubmitting = false;
+        this.signInError = true;
+      },
     });
   }
-
 }

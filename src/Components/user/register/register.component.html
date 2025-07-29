@@ -1,52 +1,149 @@
 <div class="container">
+  <div class="robot-background">
+    <div class="floating-robot">🤖</div>
+    <div class="floating-gear">⚙️</div>
+    <div class="floating-circuit">🔌</div>
+  </div>
+
   <form class="form" (ngSubmit)="register()" #registerForm="ngForm">
-    <div class="header">Register</div>
+    <div class="form-header">
+      <div class="logo"></div>
+      <img
+        src="/assets/images/logo.png"
+        alt="Joe's Robot Shop Logo"
+        class="title-logo"
+      />
+      <h2 class="subtitle">Register</h2>
+      <p class="tagline">Join the robot revolution!</p>
+    </div>
+
     <div class="form-group">
+      <label for="firstName" class="label">
+        <span class="icon">👤</span>
+        First Name
+      </label>
       <input
+        id="firstName"
         name="firstName"
+        type="text"
         required
         [(ngModel)]="user.firstName"
-        placeholder="First Name"
+        placeholder="Enter your first name"
+        [class.error]="registerForm.submitted && !user.firstName"
+        class="input"
       />
+      <div
+        class="error-message"
+        *ngIf="registerForm.submitted && !user.firstName"
+      >
+        First name is required
+      </div>
     </div>
+
     <div class="form-group">
+      <label for="lastName" class="label">
+        <span class="icon">👤</span>
+        Last Name
+      </label>
       <input
+        id="lastName"
         name="lastName"
+        type="text"
         required
         [(ngModel)]="user.lastName"
-        placeholder="Last Name"
+        placeholder="Enter your last name"
+        [class.error]="registerForm.submitted && !user.lastName"
+        class="input"
       />
+      <div
+        class="error-message"
+        *ngIf="registerForm.submitted && !user.lastName"
+      >
+        Last name is required
+      </div>
     </div>
+
     <div class="form-group">
+      <label for="email" class="label">
+        <span class="icon">📧</span>
+        Email Address
+      </label>
       <input
+        id="email"
         name="email"
+        type="email"
         required
         email
         [(ngModel)]="user.email"
-        placeholder="Email Address"
-        type="email"
+        placeholder="Enter your email address"
+        [class.error]="registerForm.submitted && (!user.email || registerForm.controls['email']?.errors?.['email'])"
+        class="input"
       />
+      <div class="error-message" *ngIf="registerForm.submitted && !user.email">
+        Email is required
+      </div>
+      <div
+        class="error-message"
+        *ngIf="registerForm.submitted && user.email && registerForm.controls['email']?.errors?.['email']"
+      >
+        Please enter a valid email address
+      </div>
     </div>
-    <div class="form-group password-container">
-      <input
-        name="password"
-        required
-        [(ngModel)]="user.password"
-        placeholder="Password"
-        type="password"
-      />
+
+    <div class="form-group">
+      <label for="password" class="label">
+        <span class="icon">🔒</span>
+        Password
+      </label>
+      <div class="password-container">
+        <input
+          id="password"
+          name="password"
+          [type]="hidePassword ? 'password' : 'text'"
+          required
+          [(ngModel)]="user.password"
+          placeholder="Enter your password"
+          [class.error]="registerForm.submitted && !user.password"
+          class="input"
+        />
+        <button
+          type="button"
+          class="toggle-password"
+          (click)="togglePasswordVisibility()"
+          [title]="hidePassword ? 'Show password' : 'Hide password'"
+        >
+          {{ hidePassword ? "👁️" : "👁️‍🗨️" }}
+        </button>
+      </div>
+      <div
+        class="error-message"
+        *ngIf="registerForm.submitted && !user.password"
+      >
+        Password is required
+      </div>
     </div>
-    <div class="buttons">
+
+    <div class="form-actions">
       <button
         type="submit"
         [disabled]="registerForm.invalid || isSubmitting"
-        class="button cta"
+        class="register-button"
       >
-        Register
+        <span *ngIf="!isSubmitting">🚀 Register</span>
+        <span *ngIf="isSubmitting">⚡ Creating Account...</span>
       </button>
     </div>
-    <div class="registerError" *ngIf="registerError">
+
+    <div class="register-error" *ngIf="registerError">
+      <span class="error-icon">⚠️</span>
       {{ registerError }}
+    </div>
+
+    <div class="form-footer">
+      <p>
+        Already have an account?
+        <a routerLink="/sign-in" class="link">Sign In</a>
+      </p>
     </div>
   </form>
 </div>
