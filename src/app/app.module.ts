@@ -20,6 +20,7 @@ import { AddToCartDialogComponent } from '../Components/add-to-cart-dialog/add-t
 import { CartComponent } from '../Components/cart/cart.component';
 import { SignInComponent } from '../Components/user/sign-in/sign-in.component';
 import { TemplateFormControlsComponent } from '../Components/user/template-form-controls/template-form-controls.component';
+import { RegisterComponent } from '../Components/user/register/register.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { TemplateFormControlsComponent } from '../Components/user/template-form-
     AddToCartDialogComponent,
     CartComponent,
     SignInComponent,
-    TemplateFormControlsComponent
+    TemplateFormControlsComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,11 +46,9 @@ import { TemplateFormControlsComponent } from '../Components/user/template-form-
     MatDialogModule,
     MatButtonModule,
     MatSnackBarModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
-  providers: [
-    CurrencyPipe
-  ],
+  providers: [CurrencyPipe],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -44,7 +44,6 @@
   outline: none;
 }
 
-
 .logo {
   width: 180px;
   align-self: center;
@@ -203,10 +202,10 @@ em.error {
 }
 
 input[type="email"] {
-  background-image: url('/assets/icons/email.svg'); /* optional */
+  /* background-image: url('/assets/icons/email.svg'); */
 }
 input[type="password"] {
-  background-image: url('/assets/icons/lock.svg'); /* optional */
+  /* background-image: url('/assets/icons/lock.svg'); */
 }
 
 .error {

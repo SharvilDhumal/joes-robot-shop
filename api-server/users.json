@@ -1,0 +1,20 @@
+{
+  "sharvil@joesrobotshop.com": {
+    "firstName": "Sharvil",
+    "lastName": "Dhumal",
+    "email": "sharvil@joesrobotshop.com",
+    "password": "very-secret"
+  },
+  "joe@joesrobotshop.com": {
+    "firstName": "Joe",
+    "lastName": "Eames",
+    "email": "joe@joesrobotshop.com",
+    "password": "super-secret"
+  },
+  "bugslayer2025@gmail.com": {
+    "firstName": "Sharvil ",
+    "lastName": "Dhumal",
+    "email": "bugslayer2025@gmail.com",
+    "password": "sharvil@12"
+  }
+}
