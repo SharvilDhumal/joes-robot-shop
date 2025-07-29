@@ -33,9 +33,12 @@ export class CatalogComponent {
     })
   }
 
-  addToCart(product : IProduct){
-    this.cartSvc.add(product);
-    this.router.navigate(['/cart']);
+  addToCart(product: IProduct) {
+    this.cartSvc.add(product).subscribe((added) => {
+      if (added) { // Only navigate if item was added (user was logged in)
+        this.router.navigate(['/cart']);
+      }
+    });
   }
 
 

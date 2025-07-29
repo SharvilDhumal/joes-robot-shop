@@ -9,18 +9,24 @@ import  {UserService}  from 'src/Services/user.service';
   styleUrls: ['./sign-in.component.css'],
 })
 export class SignInComponent {
-  credentials : IUserCredentials = {
-    email : '',
-    password:''
-  }
-  constructor(private userService : UserService, private router : Router) { }
-  signInError : boolean = false;  
+  credentials: IUserCredentials = {
+    email: '',
+    password: ''
+  };
+  hidePassword: boolean = true;
+  
+  constructor(private userService: UserService, private router: Router) { }
+  signInError: boolean = false;
 
-  signIn(){
+  togglePasswordVisibility() {
+    this.hidePassword = !this.hidePassword;
+  }
+
+  signIn() {
     this.signInError = false;
     this.userService.signIn(this.credentials).subscribe({
-      next : () => this.router.navigate(['/catalog']),
-      error : () => (this.signInError = true)
+      next: () => this.router.navigate(['/catalog']),
+      error: () => (this.signInError = true)
     });
   }
 

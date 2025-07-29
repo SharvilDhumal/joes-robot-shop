@@ -23,6 +23,7 @@ const users = {
     password: "super-secret",
   },
 };
+
 let cart = [];
 
 // use this to add a 1 second delay to all requests

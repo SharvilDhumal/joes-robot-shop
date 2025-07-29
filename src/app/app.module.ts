@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { RouterModule } from '@angular/router';
 
 // Components
@@ -42,6 +43,7 @@ import { TemplateFormControlsComponent } from '../Components/user/template-form-
     RouterModule,
     MatDialogModule,
     MatButtonModule,
+    MatSnackBarModule,
     AppRoutingModule
   ],
   providers: [

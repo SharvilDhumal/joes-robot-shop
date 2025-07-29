@@ -19,13 +19,16 @@
       </em>
     </div>
     
-    <div class="form-group">
+    <div class="form-group password-container">
       <input
         name="password" required #password="ngModel" [(ngModel)]="credentials.password"
         placeholder="Password"
-        type="password"
+        [type]="hidePassword ? 'password' : 'text'"
         [class.error]="password.invalid && password.touched"
       />
+      <button type="button" class="toggle-password" (click)="togglePasswordVisibility()">
+        <i class="material-icons">{{ hidePassword ? 'visibility_off' : 'visibility' }}</i>
+      </button>
       <em class="error" *ngIf="password.invalid && password.touched">
         Password is required
       </em>

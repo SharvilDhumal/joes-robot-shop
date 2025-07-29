@@ -2,8 +2,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 80vh;
-  background-color: #f8f9fa;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #6a0671c9 0%, #f98ceeba 100%);
+  background-attachment: fixed;
 }
 
 /* .form {
@@ -144,7 +147,45 @@ em.error {
 }
 
 .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 1.5rem;
+  width: 100%;
+  position: relative;
+}
+
+.password-container {
+  position: relative;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  transition: color 0.2s;
+}
+
+.toggle-password:hover {
+  color: #333;
+}
+
+.toggle-password:focus {
+  color: #20b1d2;
+}
+
+/* Ensure the password input has enough padding for the button */
+.password-container input[type="password"],
+.password-container input[type="text"] {
+  padding-right: 40px;
+  width: 100%;
 }
 
 .form input {
