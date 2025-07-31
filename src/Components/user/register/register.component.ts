@@ -21,6 +21,12 @@ export class RegisterComponent {
 
   constructor(private userService: UserService, private router: Router) {}
 
+  onLogoLoad(event: Event) {
+    // Handle logo load event if needed
+    // This method is called when the logo image has finished loading
+    console.log('Logo loaded successfully');
+  }
+
   togglePasswordVisibility() {
     this.hidePassword = !this.hidePassword;
   }
