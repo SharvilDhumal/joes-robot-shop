@@ -12,15 +12,9 @@
     "password": "super-secret"
   },
   "bugslayer2025@gmail.com": {
-    "firstName": "Sharvil ",
-    "lastName": "Dhumal",
-    "email": "bugslayer2025@gmail.com",
-    "password": "sharvil@12"
-  },
-  "naruto123@gmail.com": {
     "firstName": "sharvil",
     "lastName": "Dhumal",
-    "email": "naruto123@gmail.com",
-    "password": "naruto@12"
+    "email": "bugslayer2025@gmail.com",
+    "password": "sharvil123"
   }
 }
