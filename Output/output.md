@@ -35,5 +35,3 @@ _Description: Screenshot of the cart page._
 _Description: Screenshot of the sign-in page._
 
 ---
-
-\_Add more images and
