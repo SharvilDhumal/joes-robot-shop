@@ -11,7 +11,9 @@ _Description: Screenshot of the home page._
 
 ## Catalog Page
 
-![Catalog Page](images/catalog-page.png)
+![Catalog Page](./images/catalog1.png)
+![Catalog Page](./images/catalog2.png)
+![Catalog Page](./images/catalog3.png)
 
 _Description: Screenshot of the catalog page._
 
