@@ -19,13 +19,18 @@ _Description: Screenshot of the catalog page._
 
 ## Cart Page
 
-![Cart Page](images/cart-page.png)
+![Cart Page](./images/cart.png)
 
 _Description: Screenshot of the cart page._
 
+## Register Page
+
+![Sign In Page](./images/register_1.png)
+![Sign In Page](./images/register.png)
+
 ## Sign In Page
 
-![Sign In Page](images/sign-in-page.png)
+![Sign In Page](./images/signin.png)
 
 _Description: Screenshot of the sign-in page._
 
