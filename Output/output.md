@@ -1,0 +1,32 @@
+# Joe's Robot Shop - Project Images
+
+This document contains images and screenshots related to the Joe's Robot Shop project.
+
+## Home Page
+
+![Home Page](./images/home1.png)
+![Home Page](./images/home2.png)
+
+_Description: Screenshot of the home page._
+
+## Catalog Page
+
+![Catalog Page](images/catalog-page.png)
+
+_Description: Screenshot of the catalog page._
+
+## Cart Page
+
+![Cart Page](images/cart-page.png)
+
+_Description: Screenshot of the cart page._
+
+## Sign In Page
+
+![Sign In Page](images/sign-in-page.png)
+
+_Description: Screenshot of the sign-in page._
+
+---
+
+\_Add more images and
